@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Replace this URL with your ngrok URL when testing
-    const socket = io('https://your-ngrok-url-here.ngrok.io');
+    const socket = io('https://ad6b-49-37-115-175.ngrok-free.app');
 
     const form = document.getElementById('send-container');
     const messageInput = document.getElementById('messageInp');
