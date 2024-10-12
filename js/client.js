@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const socket = io();
+    // Replace this URL with your ngrok URL when testing
+    const socket = io('https://your-ngrok-url-here.ngrok.io');
 
     const form = document.getElementById('send-container');
     const messageInput = document.getElementById('messageInp');
@@ -35,10 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     socket.on('user-joined', name => {
         append(`${name} joined the chat`, 'left');
-    });
-
-    socket.on('current-users', (currentUsers) => {
-        append(`People in the Chat: ${currentUsers.join(', ')}`, 'left');
     });
 
     socket.on('receive', data => {
