@@ -9,7 +9,7 @@ app.use(cors());
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "https://mohitksahu.github.io/Live_groupchat_site/", // Replace with your GitHub Pages URL
+    origin: "*", // Replace with your GitHub Pages URL
     methods: ["GET", "POST"]
   }
 });
