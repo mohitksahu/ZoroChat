@@ -24,6 +24,7 @@ body {
     margin-bottom: 20px;
 }
 
+/* Message Styling */
 .message {
     background-color: grey;
     width: 24%;
@@ -32,6 +33,7 @@ body {
     border-radius: 7px;
 }
 
+/* Align Messages */
 .left {
     float: left;
     clear: both;
@@ -42,6 +44,7 @@ body {
     clear: both;
 }
 
+/* Send Container Styling */
 #send-container {
     display: block;
     margin: auto;
@@ -57,6 +60,7 @@ body {
     height: 29px;
 }
 
+/* Input Field Styling */
 #messageInp {
     width: 92%;
     border: 2px solid black;

@@ -1,4 +1,4 @@
-const socket = io('http://localhost:8000')
+const socket = io('https://localhost:8000')
 
 const form = document.getElementById('send-container');
 const messageInput = document.getElementById('messageInp')
@@ -20,7 +20,7 @@ const append = (message, position) => {
     messageContainer.append(messageElement);
 };
 
-form.addEventListener('submit', (e)=>{
+form.addEventListener('submit', (e) => {
     e.preventDefault();
     const message = messageInput.value;
     append(`You: ${message}`, 'right');
