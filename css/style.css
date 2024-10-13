@@ -68,3 +68,17 @@ body {
         width: 90%; /* Wider on smaller screens */
     }
 }
+
+.input-container {
+    position: relative; /* Positioning for the footer text */
+}
+  
+.footer-text {
+    position: fixed; /* Absolute position to stay within the input area */
+    bottom: 130px; /* Position it near the bottom */
+    left: 700px; /* Align to the left */
+    color: white; /* Text color */
+    font-size: 0.75rem; /* Smaller text size */
+    pointer-events: none; /* Prevent mouse events */
+    font-family: 'Outfit', sans-serif;
+}

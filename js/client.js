@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Replace this URL with your ngrok URL when testing
-    const socket = io('https://fc90-152-58-142-129.ngrok-free.app', {
+    const socket = io('https://f8cd-152-58-142-129.ngrok-free.app', {
         transports: ['websocket']
     });
 
