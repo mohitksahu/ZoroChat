@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Replace this URL with your ngrok URL when testing
-    const socket = io('https://96a3-152-59-157-97.ngrok-free.app', {
+    const socket = io(' https://a700-152-58-142-129.ngrok-free.app ', {
         transports: ['websocket']
     }); 
 
     const form = document.getElementById('send-container');
     const messageInput = document.getElementById('messageInp');
-    const messageContainer = document.querySelector(".container");
+    const messageContainer = document.querySelector(".message-container");
 
     socket.on('connect', () => {
         console.log('Connected to the server');
@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         messageElement.classList.add('message');
         messageElement.classList.add(position);
         messageContainer.append(messageElement);
+        messageContainer.scrollTop = messageContainer.scrollHeight; // Auto-scroll to bottom
     };
 
     form.addEventListener('submit', (e) => {

@@ -1,25 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZoroChat - Chat Site</title>
-    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
-    <script defer src="js/client.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZoroChat - Chat Site</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+  <script defer src="js/client.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav>
-        <img class="logo" src="chat.png" alt="">
-    </nav>
-    <div class="container">
-        <!-- Messages will be inserted here dynamically -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <img src="zoroLogo.jpeg" alt="Zoro" style="width: 40px; height: 40px; margin-right: 10px;">
+    <a class="navbar-brand" href="#">ZoroChat</a>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="message-container">
+          <!-- Messages will be dynamically inserted here -->
+        </div>
+
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="messageInp" placeholder="Type a message..." aria-label="Type a message">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="button" id="sendBtn">
+              <i class="fas fa-arrow-up"></i>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="send">
-        <form action="#" id="send-container">
-            <input type="text" name="messageInp" id="messageInp">
-            <button class="btn" type="submit">Send</button>
-        </form>
-    </div>
+  </div>
+
+  <script>
+    // Your socket.io and chat handling logic here
+  </script>
 </body>
 </html>
