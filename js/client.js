@@ -2,9 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Replace this URL with your ngrok URL when testing
     const socket = io('https://fc90-152-58-142-129.ngrok-free.app', {
         transports: ['websocket']
-    }); 
+    });
 
-    const form = document.getElementById('send-container');
     const messageInput = document.getElementById('messageInp');
     const messageContainer = document.querySelector(".message-container");
 
@@ -19,22 +18,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const append = (message, position) => {
         const messageElement = document.createElement('div');
         messageElement.innerText = message;
-        messageElement.classList.add('message');
-        messageElement.classList.add(position);
+        messageElement.classList.add('message', position);
         messageContainer.append(messageElement);
         messageContainer.scrollTop = messageContainer.scrollHeight; // Auto-scroll to bottom
     };
 
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
+    document.getElementById('sendBtn').addEventListener('click', (e) => {
         const message = messageInput.value;
-        append(`You: ${message}`, 'right');
-        socket.emit('send', message);
-        messageInput.value = '';
+        if (message) {
+            append(`You: ${message}`, 'right');
+            socket.emit('send', message);
+            messageInput.value = '';
+        }
     });
 
     const name = prompt("Enter your name to join");
-    console.log(name);
     socket.emit('new-user-joined', name);
 
     socket.on('user-joined', name => {
