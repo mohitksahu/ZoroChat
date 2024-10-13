@@ -16,21 +16,23 @@ const io = new Server(server, {
 
 const users = {};
 
-io.on('connection', (socket) => {
+io.on('connection', socket => {
   console.log('A user connected');
 
-  socket.on('new-user-joined', (name) => {
+  socket.on('new-user-joined', name => {
     users[socket.id] = name;
-    socket.broadcast.emit('user-joined', name);
+    socket.broadcast.emit('user-joined', name, Object.keys(users).length);
+    io.emit('participants-count', Object.keys(users).length); // Emit the count to all
   });
 
-  socket.on('send', (message) => {
-    socket.broadcast.emit('receive', { message: message, name: users[socket.id] });
+  socket.on('send', message => {
+    socket.broadcast.emit('receive', { name: users[socket.id], message });
   });
 
   socket.on('disconnect', () => {
-    socket.broadcast.emit('left', users[socket.id]);
+    socket.broadcast.emit('left', users[socket.id], Object.keys(users).length - 1);
     delete users[socket.id];
+    io.emit('participants-count', Object.keys(users).length); // Emit the updated count
   });
 });
 
